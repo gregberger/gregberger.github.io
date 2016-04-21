@@ -5,7 +5,7 @@ var offsetY = 0.2;
 var posX, posY;
 function setup() 
 {
-    createCanvas(800, 800);
+    createCanvas(windowWidth, windowHeight);
     posX = width/2;
     posY = height/2;
     noFill();
