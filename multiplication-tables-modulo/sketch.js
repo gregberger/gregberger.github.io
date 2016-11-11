@@ -8,13 +8,13 @@ function sketch(p) {
     var auto = 0.001;
 
      p.setup =function() {
-        p.createCanvas(p.windowWidth, p.windowHeight);
+        p.createCanvas(p.windowWidth, p.windowHeight-200);
         r = 300;
         p.strokeWeight(10);
-        tSlider = p.createSlider(1, 200, 0.1, 1);
+        tSlider = p.createSlider(1, 200, 70, 1);
         tSlider.mouseMoved(changeVal);
         tSlider.style('width', '200px');
-        pSlider = p.createSlider(1, 1000, 1, 1);
+        pSlider = p.createSlider(1, 1000, 142, 1);
         pSlider.style('width', '500px');
         pSlider.mouseMoved(changeVal);
 
@@ -23,6 +23,7 @@ function sketch(p) {
         // pDiv = p.createDiv();
         //pVal.parent(pDiv);
         //pSlider.parent(pDiv);
+        drawLines();
 
     }
 
