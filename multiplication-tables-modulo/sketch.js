@@ -13,13 +13,19 @@ function sketch(p) {
         p.strokeWeight(10);
         tSlider = p.createSlider(1, 200, 70, 1);
         tSlider.mouseMoved(changeVal);
-        tSlider.style('width', '200px');
+        tSlider.style('width', '500px');
+
         pSlider = p.createSlider(1, 1000, 142, 1);
         pSlider.style('width', '500px');
         pSlider.mouseMoved(changeVal);
 
+        rSlider = p.createSlider(100,1000, 300, 1);
+        rSlider.mouseMoved(changeVal);
+        rSlider.style('width', '500px');
+
         tVal = p.createP();
         pVal = p.createP();
+        rVal = p.createP();
         // pDiv = p.createDiv();
         //pVal.parent(pDiv);
         //pSlider.parent(pDiv);
@@ -37,10 +43,12 @@ function sketch(p) {
         p.background(255);
         points = pSlider.value();
         table = tSlider.value();
+        r = rSlider.value();
 
         tVal.html("table " + table);
         pVal.html("points " + points);
-        p.stroke(40, 0, 200, 100);
+        rVal.html("r "+r)
+        p.stroke(40, 0, 200, 80);
         p.push();
         p.translate(p.width / 2, p.height / 2);
         // puts the point idx 0 on top
