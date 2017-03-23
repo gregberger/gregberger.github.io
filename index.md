@@ -6,7 +6,7 @@ google_analytics: false
 ---
 
 # Well, hello World...
-Small part of my p5.js experimentations and a first test in using Jekyll site generator from Github's pages
+Small part of my p5.js experimentations and a first test in using [Jekyll](https://jekyllrb.com/) site generator from Github's pages
 
 ## projects
 
