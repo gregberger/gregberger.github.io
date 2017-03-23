@@ -10,6 +10,7 @@ Small part of my p5.js experimentations and a first test in using [Jekyll](https
 
 ## projects
 
+* [Rectangle Strip](rectangle-strip)
 * [Multiplication table visualizer](multiplication-tables-modulo)
 * [Random Walker](random-walker)
 * [Valentine's gift](plotter)
