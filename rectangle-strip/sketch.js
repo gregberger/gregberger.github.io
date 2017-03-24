@@ -8,9 +8,9 @@ var darkMode = 0,
   darkModeCbx;
 var autoMode = false;
 var params = {};
-
+var c;
 function setup() {
-  createCanvas(1000, 800);
+  createCanvas(windowWidth, windowHeight-100);
   rectMode(CENTER);
 
   noFill();
@@ -21,7 +21,7 @@ function setup() {
   heightMult = createSlider(0, 100, 10);
   heightPow = createSlider(-30, 30, 0);
   elem = createSlider(10, 200, 177);
-  radius = createSlider(10, 400,200);
+  radius = createSlider(10, windowWidth/2,200);
 
 
 
@@ -40,6 +40,7 @@ function setup() {
 
   share = createButton('Share');
   share.mouseReleased(shareUrl);
+
 
   var input = selectAll('input');
   // sets callbacks and styles to input elements
@@ -96,26 +97,42 @@ function draw() {
     angle += steps;
   }
 }
+function keyPressed(){
+  if(key == ' '){
+    // not working
+    //dlImg();
+  }
+}
+
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight-100);
+  //radius = createSlider(10, windowWidth/2,200);
+
+  radius.elt.max = windowWidth/2;
+}
+
 var logParams= function(){
   params = {
-  'angleSteps': base.value(),
-  'hMult':heightMult.value(),
-  'hPow':heightPow.value(),
-  'nbElem':elem.value(),
-  'radius':radius.value(),
+    'angleSteps': base.value(),
+    'hMult':heightMult.value(),
+    'hPow':heightPow.value(),
+    'nbElem':elem.value(),
+    'radius':radius.value()
   };
   console.log(params)
 
 }
 
-function setValues(_params){
+var setValues = (_params)=>{
   base.value(_params.angleSteps);
   heightMult.value(_params.hMult);
   heightPow.value(_params.hPow);
   elem.value(_params.nbElem);
   radius.value(_params.radius);
 }
-
+var dlImg = () =>{
+  saveCanvas('image', 'png');
+}
 var shareUrl = () => {
   var q = [];
   if(params != {}){
