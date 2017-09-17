@@ -1,4 +1,9 @@
+let colors = {
+	h: "#34495E",
+	m: '#8EACBF',
+	s: '#FF6600'
 
+};
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	fill(255);
@@ -24,16 +29,12 @@ function draw() {
 	let rotationMin = radians(map(min, 0,60, 0, 360));
 	let rotationH = radians(map(hr%12, 0, 12, 0, 360));
 	rotate(-HALF_PI);
-	fill("#34495E");
+	fill(colors.h);
 	arc(0,0, 700,700, 0, rotationH);
-	fill("#8EACBF");
+	fill(colors.m);
 	arc(0,0, 600,600, 0, rotationMin);
-	fill("#FF6600");
+	fill(colors.s);
 	arc(0,0, 100,100, 0, rotationSec);
-
-
-
-
 	pop();
 
 
