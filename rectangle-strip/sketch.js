@@ -17,16 +17,16 @@ function setup() {
   strokeWeight(0.8);
   colorMode(HSB);
   background(0);
-  base = createSlider(0, 360, 180);
-  heightMult = createSlider(0, 100, 10);
-  heightPow = createSlider(-30, 30, 0);
+  base = createSlider(0.01, 10.0, 10,0.1);
+  heightMult = createSlider(1, 100, 10);
+  heightPow = createSlider(1, 16, 15, 0.5);
   elem = createSlider(10, 200, 177);
   radius = createSlider(10, windowWidth/2,200);
 
 
 
   darkModeCbx = createCheckbox('Light Mode', true);
-  darkModeCbx.changed(function() {
+  darkModeCbx.changed(() => {
     if (this.checked()) {
       this.label = "Light Mode";
       darkMode = 0;
@@ -60,8 +60,8 @@ function setup() {
 
 function draw() {
   background(255 * darkMode,0.3);
-  cX = width / 2 ;
-  cY = height / 2;
+  cX = width / 2  ;
+  cY = height / 2 ;
   if(autoMode){
     base.value(abs(sin(radians(frameCount/10))*360));
   }
@@ -69,7 +69,9 @@ function draw() {
   var steps = base.value();//round((360 / elem.value()));
 
   var nbElem = round(elem.value());//%radius.value());
-  //angle = 0;
+  var alpha = map(nbElem, 200, 10, 0.4, 1.0);
+
+  // angle = 0;
   for (var i = 0; i <= nbElem; i += 1) {
     var radAng = radians(angle);
     var r = radius.value();
@@ -78,14 +80,17 @@ function draw() {
     var x = cX + cos(radAng) * r;//%nbElem;
     var y = cY + sin(radAng) * r;//%nbElem;
 
-    stroke(floor(angle) % 360, 200, 255,0.4);
+
     //stroke(255);
     push();
     translate(x, y);
     if(rectHmult > 0){
-      rotate(radians(angle/2 / (401-r)));
-
-      rect(0, 0, (r/10)*(nbElem)*sin(radAng), (r/10)*i*rectHmult*pow(cos(radAng),rectHpow));
+      rotate(radians(angle/2 / ((width/2)-r)));
+      stroke(255,alpha-0.1)
+      ellipse(0, 0, (r/200)*(nbElem/rectHpow)*sin(radAng), (r/100)*rectHmult*pow(cos(radAng),floor(rectHpow)));
+      stroke(floor(angle) % 360, 200, 255,alpha);
+      var squareSize = rectHmult*10;
+      rect(0,0,squareSize,squareSize*sin(rectHpow));
 
     }else{
       rotate(radAng);
@@ -94,7 +99,7 @@ function draw() {
 
 
     pop();
-    angle += steps;
+    angle += (steps*nbElem);
   }
 }
 function keyPressed(){
