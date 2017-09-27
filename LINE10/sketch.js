@@ -41,9 +41,12 @@ function printChars (){
 		if(random(1)>0.79 ){
 			line(0,0, spacing, spacing);
 		}else{
-			fill(scheme[4-schemeIndex]);
+			let ellFill = color(scheme[4-schemeIndex]);
+			fill(ellFill._getRed(), ellFill._getGreen(), ellFill._getBlue(), strk*8);
+
 			noStroke();
-			ellipse(0,0,spacing/2, spacing/2,1);
+			let diam = spacing*(8-strk)
+			ellipse(0,0,diam);
 		}
 	}else{
 		line(spacing,0,0,spacing);
