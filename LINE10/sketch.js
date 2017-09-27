@@ -35,7 +35,7 @@ function printChars (){
 
 	stroke(scheme[schemeIndex]);
 	translate(x,y);
-	
+
 	if(random(1)>0.5){
 
 		if(random(1)>0.5 ){
