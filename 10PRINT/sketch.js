@@ -29,7 +29,8 @@ function draw() {
 
 function printChars (){
 	let d = dist(x,y,width/2, height/2);
-	let strk  = map(d,0,maxDist,0.3,spacing/9);
+	let strk  = map(d,0,maxDist,0.3,spacing/5);
+
 	strokeWeight(strk);
 	let schemeIndex = floor(map(d, 0, maxDist,0,4));
 
@@ -38,8 +39,9 @@ function printChars (){
 
 	if(random(1)>0.5){
 
-		if(random(1)>0.5 ){
-			if(random(1)>0.5){
+		if(random(1)>0.8 ){
+			noFill();
+			if(random(1)>0.2){
 				triangle(spacing/2,0,0,spacing,spacing,spacing);
 			}else{
 				triangle(0,0,spacing/2,spacing,spacing,0);

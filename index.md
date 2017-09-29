@@ -10,7 +10,7 @@ Small part of my p5.js experimentations and a first test in using [Jekyll](https
 
 ## projects
 
-* [LINE10](LINE10) playing with the original c64 [algorithm](https://10print.org/)
+* [10PRINT](10PRINT) playing with the original c64 [algorithm](https://10print.org/)
 * [First Clock](clock)
 * [Rectangle Strip](rectangle-strip)
 * [Multiplication table visualizer](multiplication-tables-modulo)
