@@ -10,6 +10,7 @@ Small part of my p5.js experimentations and a first test in using [Jekyll](https
 
 ## projects
 
+* [Question Everything](Question_Everything) another random walker 🤔
 * [10PRINT](10PRINT) playing with the original c64 [algorithm](https://10print.org/)
 * [First Clock](clock)
 * [Rectangle Strip](rectangle-strip)
